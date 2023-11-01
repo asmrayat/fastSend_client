@@ -1,14 +1,29 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import blogo from '../../../assets/blogo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
 
+    const {user,logOut}=useContext(AuthContext);
+
+    const handleLogout =()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error =>console.log(error))
+    }
+
     const navItem =
         <>
-            <li><a>Home</a></li>
-            <li><a>About</a></li>
-            <li><a>Login</a></li>
+            <Link to="/"><li><a className='hover:bg-[#ea5a53] hover:text-white' >Home</a></li></Link>
+            
+            {user?.email? 
+            <>
+            <Link to="/mybookings"><li><a className='hover:bg-[#ea5a53] hover:text-white'>My Bookings</a></li></Link>
+            <Link to="/"> <li><a onClick={handleLogout} className='hover:bg-[#ea5a53] hover:text-white'>Logout</a></li></Link>
+            </>:<Link to="/login"><li><a className='hover:bg-[#ea5a53] hover:text-white'>Login</a></li></Link>
+           }
         
         </>
     return (
@@ -24,12 +39,12 @@ const Header = () => {
                 </div>
 
                 <div className='hidden lg:block'>
-                    <Link to="/"><img data-aos="zoom-in" className='h-[70px]' src={logo} alt="" /></Link>
+                    <Link to="/"><img  className='h-[70px]' src={logo} alt="" /></Link>
                 </div>
 
             </div>
             <div>
-                <img className='lg:h-[70px] hidden lg:block' src={blogo} alt="" />
+                <img data-aos="fade-right" className='lg:h-[70px] hidden lg:block' src={blogo} alt="" />
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

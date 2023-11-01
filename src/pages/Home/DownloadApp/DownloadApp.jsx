@@ -27,6 +27,7 @@ const DownloadApp = () => {
                     <img className='lg:h-[700px] object-cover ' src={img3} alt="" />
                 </div>
             </div>
+            
         </div>
     );
 };

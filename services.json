@@ -1,41 +1,35 @@
 [
     {
-        "_id": "635a0c0bj283d231228942ae",
         "service_id": "01",
         "title": "Ambulance",
         "img": "https://i.ibb.co/ftsfrSD/emergency-vehicle-1.png"
        
     },
     {
-        "_id": "635a0c0b64a6d231mcv942ae",
         "service_id": "02",
         "title": "Bike",
         "img": "https://i.ibb.co/MV7VWjr/bike.png"
        
     },
     {
-        "_id": "635a0c0923a6d231228942ae",
         "service_id": "03",
         "title": "Car",
         "img": "https://i.ibb.co/0fvJ6mm/car-sticker.png"
        
     },
     {
-        "_id": "635a0c0b6csc3231228942ae",
         "service_id": "04",
         "title": "Food",
         "img": "https://i.ibb.co/444bWRn/delivery-time.png"
        
     },
     {
-        "_id": "635a0c0b64a634v1228942ae",
         "service_id": "05",
         "title": "Parcel",
         "img": "https://i.ibb.co/ZG6YWxD/delivery-box.png"
        
     },
     {
-        "_id": "635a0c0b64a6d21sdf8942ae",
         "service_id": "06",
         "title": "Courier",
         "img": "https://i.ibb.co/qLQQwmM/postman.png"

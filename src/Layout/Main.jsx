@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../pages/Sheard/Header/Header';
 import { Outlet } from 'react-router-dom';
-import Footer from '../pages/Sheard/Header/Footer/Footer';
+import Footer from '../pages/Sheard/Footer/Footer';
+
 
 const Main = () => {
     return (
