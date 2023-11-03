@@ -22,7 +22,7 @@ const ABC = () => {
         const date = form.date.value;
 
         const order = { img, name, email, city, address, phone,ServiceDate:date, serviceName: title };
-        console.log(order);
+        // console.log(order);
         
 
         fetch('http://localhost:5000/bookings', {

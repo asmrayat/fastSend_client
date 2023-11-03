@@ -61,6 +61,7 @@ const Bookings = () => {
                 <h1 className='font-bold text-5xl mt-5'>My<span className='font-bold text-[#ea5a53]'>Bookings</span></h1>
                 <p className='text-2xl mt-5'>Total number of order{bookings.length}</p>
             </div>
+          
             
             <div className="overflow-x-auto m-5 mb-96">
                 <table className="table text-center">
