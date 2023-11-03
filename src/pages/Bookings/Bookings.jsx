@@ -72,7 +72,7 @@ const Bookings = () => {
                             <th>Image</th>
                             <th>Service name</th>
                             <th>Date</th>
-                            <th>Price</th>
+                            <th>Location</th>
                             <th>Cancel</th>
                             <th></th>
                         </tr>
