@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import loginAnimation from '../../../assets/login.json'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -8,43 +8,51 @@ import Swal from "sweetalert2";
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
-    const [isLoggedIn, setLoggedIn] = useState(false);
-    const handleLogin = event =>{
+    const { signIn } = useContext(AuthContext);
+    // const [isLoggedIn, setLoggedIn] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
- 
+
         // console.log(email,password);
 
-        signIn(email,password)
-        .then(result =>{
-             if(result.user){
-                setLoggedIn(true);
-                Swal.fire(
-                    'Login successful',
-                    '',
-                    'success'
-                  )
-            }
-        })
-        .catch(error=> console.log(error));
+        signIn(email, password)
+            .then(result => {
+                navigate(from, { replace: true })
+                
+                
+                if (result.user) {
+                    // setLoggedIn(true);
+                    Swal.fire(
+                        'Login successful',
+                        '',
+                        'success'
+                    )
+                }
+            })
+            .catch(error => console.log(error));
     }
-    if (isLoggedIn) {
-        return <Navigate to="/" />;
-    }
+    // if (isLoggedIn) {
+    //     return <Navigate to="/" />;
+    // }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="lg:w-1/2 mr-12 hidden lg:block">
                     <Lottie animationData={loginAnimation} />
-                    
+
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleLogin}  className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
-                        <h1 className="text-3xl text-center font-bold">Login</h1>
+                            <h1 className="text-3xl text-center font-bold">Login</h1>
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
